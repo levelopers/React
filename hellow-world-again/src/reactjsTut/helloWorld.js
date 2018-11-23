@@ -13,7 +13,8 @@ export default class helloWorld extends Component {
     let childNode=  document.createElement("p")
     this.append(childNode)
     return ReactDOM.render(
-        <p>hello world from another root named "hi"</p>,
+     <div> ------------------------------------------------------
+        <p>01 hello world from another root named "hi"</p></div>,
         childNode
     )
   }

@@ -3,6 +3,9 @@ import './App.css';
 import HelloWorld from './reactjsTut/helloWorld'
 import IntroducingJSX from './reactjsTut/introducingJSX'
 import RenderingElements from './reactjsTut/RenderingElements'
+import StateLifeCycle from './reactjsTut/StateLifeCycle'
+import HandlingEvents from './reactjsTut/HandlingEvents'
+import ConditionalRendering from './reactjsTut/ConditionalRendering'
 class App extends Component {
   render() {
     return (
@@ -11,6 +14,9 @@ class App extends Component {
         <HelloWorld />
         <IntroducingJSX />
         <RenderingElements />
+        <StateLifeCycle />
+        <HandlingEvents />
+        <ConditionalRendering />
       </div>
     );
   }

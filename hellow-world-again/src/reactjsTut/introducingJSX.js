@@ -26,7 +26,8 @@ export default class introducingJSX extends Component {
     getGreeting(user){
         if(user){
             return <div> 
-            <h1>hello, {user.firstName} {user.lastName}</h1>
+                ----------------------------------------------
+            <p>02 hello, {user.firstName} {user.lastName}</p>
             </div>
         }
         return <h1>hello, but i don't know you</h1>
