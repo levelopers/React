@@ -5,20 +5,19 @@ export default class ConditionalRendering extends Component {
         super(props)
         this.state = {
             name: String,
-            islogin: false
+            islogin: false,
+            isHide:false
         }
         this.Greeting = this.Greeting.bind(this)
         this.User = this.User.bind(this)
         this.Singup = this.Singup.bind(this)
-        this.handleClick = this.handleClick.bind(this)
         this.Input = this.Input.bind(this)
+        this.LogOutBtn = this.LogOutBtn.bind(this)
+        this.LogInBtn = this.LogInBtn.bind(this)
 
     }
-    handleClick(e) {
-        this.setState({
-            islogin: true,
-        })
-    }
+   
+    //01 
     Input(e) {
         this.setState({
             [e.target.name]: e.target.value
@@ -26,7 +25,7 @@ export default class ConditionalRendering extends Component {
         console.log(this.state);
 
     }
-    //conditional & composition
+    //02 conditional & composition
     Greeting(props) {
         if (props.login) {
             return <this.User name={props.name} />
@@ -43,15 +42,54 @@ export default class ConditionalRendering extends Component {
             <p>you have to sign up</p>
         </div>
     }
+    //03
+    LogOutBtn(){
+        
+        return <div>
+            <button onClick={this.handleLogOut}>log out</button>
+        </div>
+    }
+    LogInBtn(){
+        const isHide = this.state.isHide
+        if(isHide){
+            return null
+        }
+        return <div>
+            <button onClick={this.handleLogIn}>log in</button>
+        </div>
+    }
+    handleLogIn=()=>{
+        this.setState({
+            islogin:true
+        })
+    }
+    handleLogOut=()=>{
+        this.setState({
+            islogin:false
+        })
+    }
     render() {
+        const islogin = this.state.islogin
+        let btn 
+        if(islogin){
+            btn = <this.LogOutBtn />
+        }else{
+            btn = <this.LogInBtn />
+
+        }
         return (
             <div>
                 ------------------------------------------------------------------------------
                 <p>07</p>
+                
+            {/* ternary "inline" */}
+                {islogin? (<p></p>)
+                : (<div>
                 <label >name:</label>
-                <input name="name" type="text" onChange={this.Input}></input>
-                <button onClick={this.handleClick}>submit</button>
-
+                <input name="name" type="text" onChange={this.Input}></input> 
+                </div>
+                )}
+                {btn}
                 <this.Greeting login={this.state.islogin} name={this.state.name} />
             </div>
         )
