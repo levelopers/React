@@ -55,7 +55,8 @@ export default class ConditionalRendering extends Component {
             return null
         }
         return <div>
-            <button onClick={this.handleLogIn}>log in</button>
+            <br/>
+            <button style={{width: 100}}  onClick={this.handleLogIn}>log in</button>
         </div>
     }
     handleLogIn=()=>{

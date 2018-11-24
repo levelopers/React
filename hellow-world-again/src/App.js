@@ -7,7 +7,12 @@ import StateLifeCycle from './reactjsTut/StateLifeCycle'
 import HandlingEvents from './reactjsTut/HandlingEvents'
 import ConditionalRendering from './reactjsTut/ConditionalRendering'
 import ListsKeys from './reactjsTut/ListsKeys'
+import Forms from './reactjsTut/Forms'
+import Father from './reactjsTut/Father';
+import LiftStateUp from './reactjsTut/LiftStateUp'
 class App extends Component {
+  
+
   render() {
     return (
       <div className="App">
@@ -19,6 +24,7 @@ class App extends Component {
         <HandlingEvents />
         <ConditionalRendering />
         <ListsKeys />
+        <Father />
       </div>
     );
   }
