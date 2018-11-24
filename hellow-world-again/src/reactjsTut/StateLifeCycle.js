@@ -45,7 +45,7 @@ export default class StateLifeCycle extends Component {
     //(4) update dom with state
     render() {
         // console.log(this.state.date);
-
+a()
         return (
             <div>
                 ------------------------------------------------------------------------------------
@@ -53,5 +53,10 @@ export default class StateLifeCycle extends Component {
             </div>
         );
     }
+
+
+}
+
+function a () {
 
 }

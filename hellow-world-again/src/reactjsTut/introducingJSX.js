@@ -6,8 +6,7 @@ export default class introducingJSX extends Component {
         return this.embedingExpressionsInJSX()
     }
     embedingExpressionsInJSX() {
-        let childNode = document.createElement("p")
-        this.append(childNode)
+       
         const name = "Josh Perez"
 
         const user = {
@@ -15,14 +14,9 @@ export default class introducingJSX extends Component {
             lastName:"Perez"
         }
         
-        return ReactDOM.render(
-            this.getGreeting(user),
-            childNode
-        )
+        return this.getGreeting(user)
     }
-    append(node) {
-        document.getElementById("hi").appendChild(node)
-    }
+    
     getGreeting(user){
         if(user){
             return <div> 

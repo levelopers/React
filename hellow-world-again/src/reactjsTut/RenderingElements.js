@@ -9,19 +9,15 @@ export default class RenderingElements extends Component {
   }
 
   renderComponent() {
-    let childnode = document.createElement("div")
-    this.append(childnode)
+    
     const element = (<div>
       <this.RenderManyTimes name="sara" />
       <Avatar1 />
       <Avatar2 />
     </div>)
-    return ReactDOM.render(element, childnode);
-
+    return element
   }
-  append(node) {
-    document.getElementById("hi").appendChild(node)
-  }
+  
 
   //this.function jsx tag works
    RenderManyTimes() {
