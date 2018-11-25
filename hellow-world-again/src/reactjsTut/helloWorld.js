@@ -9,17 +9,10 @@ export default class helloWorld extends Component {
   render() {
    return this.renderFromRoot()
   }
-  renderFromRoot(){
-    let childNode=  document.createElement("p")
-    this.append(childNode)
-    return ReactDOM.render(
-     <div> ------------------------------------------------------
-        <p>01 hello world from another root named "hi"</p></div>,
-        childNode
-    )
+  renderFromRoot=()=>{
+    return <div>
+      <p>01 render from root</p>
+    </div>
   }
-   append(childNode) {
-    document.getElementById("hi").appendChild(childNode)
-      
-  }
+  
 }
