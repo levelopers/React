@@ -85,9 +85,9 @@ export default class Login extends Component {
     render() {
         console.log(this.state);
         return (
-            <div className="login">
+    
+    <div className="login" style={{"background-image": "url('/background.jpg')"}}>
 
-                <img  src="/background.jpg" alt=""/>
 
                 <div className="out-box">
                 
@@ -110,6 +110,11 @@ export default class Login extends Component {
                             button
                             </button>
                     </form>
+                    <div className="footer">
+                       <span >
+                       Already have an account?
+                       </span>
+                    </div>
                 </div>
 
 

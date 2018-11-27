@@ -22,7 +22,7 @@ export default class Form extends Component {
         }
 
         return (
-            <span id={`form-${name}`} >
+            <span id={`form-${name}`} className="form-input" >
                 <input id={`input-${name}`} className={errorCssClass||inputCssClass} type="text" name={name} placeholder={name.charAt(0).toUpperCase() + name.slice(1)}
                     onChange={this.props.handleChange} 
                     onBlur={this.props.handleBlur} value={this.props.value}/>
