@@ -3,8 +3,8 @@ import './App.css';
 import FetchAPI from './component/fetchAPI'
 import SignUp from './component/project1/SignUp'
 import Login from './component/project1/Login'
-import { Link, Route, Switch } from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom';
+// import { Link, Route, Switch } from 'react-router-dom';
+// import { BrowserRouter } from 'react-router-dom';
 class App extends Component {
   constructor(props) {
     super(props)
@@ -64,9 +64,9 @@ render() {
     <div>
       {/* <this.Fetch /> */}
       {/* <SignUp /> */}
-      <BrowserRouter>
+      {/* <BrowserRouter> */}
       <Login />
-      </BrowserRouter>
+      {/* </BrowserRouter> */}
       
     </div>
   )
