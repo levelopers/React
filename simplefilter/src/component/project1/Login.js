@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import './Login.css'
 import Form from './Form'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import SignUp from './SignUp';
+
 
 export default class Login extends Component {
     constructor(props) {
@@ -11,11 +13,7 @@ export default class Login extends Component {
                 isValid: false,
                 errorMessage: ''
             },
-            name: {
-                value: '',
-                isValid: false,
-                errorMessage: ''
-            },
+           
             password: {
                 value: '',
                 isValid: false,
@@ -24,9 +22,6 @@ export default class Login extends Component {
         }
 
     }
-
-    
-
     handleChange = (e) => {
         const targetName = e.target.name
         const targetValue = e.target.value
@@ -101,18 +96,20 @@ export default class Login extends Component {
                         handleChange={(e)=>this.handleChange(e)} handleBlur={(e)=>this.handleBlur(e)} value={this.state.email.value}/>
                         <Form name="password" message={this.state.password.errorMessage}
                         handleChange={(e)=>this.handleChange(e)} handleBlur={(e)=>this.handleBlur(e)} value={this.state.password.value}/>
-                        <Form name="name" message={this.state.name.errorMessage}
-                        handleChange={(e)=>this.handleChange(e)} handleBlur={(e)=>this.handleBlur(e)} value={this.state.name.value}/>
-
+                       
                         
 
                         <button id="form-button" type="submit" >
-                            button
+                            Login
                             </button>
                     </form>
                     <div className="footer">
                        <span >
-                       Already have an account?
+                      Don't have an account?
+                      {/* <Router>
+                       <Link to="/SignUp">SignUp</Link>
+        <Route path="/Signup" component={this.SignUp} />
+                       </Router> */}
                        </span>
                     </div>
                 </div>

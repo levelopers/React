@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import FetchAPI from './component/fetchAPI'
+import SignUp from './component/project1/SignUp'
 import Login from './component/project1/Login'
-
+import { Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 class App extends Component {
   constructor(props) {
     super(props)
@@ -42,13 +44,30 @@ class App extends Component {
     )
   }
 
+  Home=()=>{
+    return (
+      <div>
+        home
+      </div>
+    )
+  }
+  Products=()=>{
+    return (
+      <div>
+        prode
+      </div>
+    )
+  }
 
 render() {
   return (
     <div>
       {/* <this.Fetch /> */}
+      {/* <SignUp /> */}
+      <BrowserRouter>
       <Login />
-
+      </BrowserRouter>
+      
     </div>
   )
 }
