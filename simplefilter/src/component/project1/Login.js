@@ -1,132 +1,117 @@
 import React, { Component } from 'react'
+import './Login.css'
+import Form from './Form'
 
 export default class Login extends Component {
     constructor(props) {
         super(props)
-        this.state={
-                email:{},
-                name:{},
-                password:{}
+        this.state = {
+            email: {
+                value: '',
+                isValid: false,
+                errorMessage: ''
+            },
+            name: {
+                value: '',
+                isValid: false,
+                errorMessage: ''
+            },
+            password: {
+                value: '',
+                isValid: false,
+                errorMessage: ''
+            }
         }
 
     }
 
-    handleBlur = (e) => {
-        const text = e.target.value
-        let receipt={
-            message:'',
-            isPassed:false
-        }
-        if(e.target.name==="email"){
-            receipt.message=this.checkEmail(text).message
-            receipt.isPassed=this.checkEmail(text).isPassed
-            if(!receipt.isPassed){
-                // console.log(receipt.message);
-                
-            }
-        }        
-        if(e.target.name==="name"){
-             receipt.message=this.checkName(text).message
-             receipt.isPassed=this.checkName(text).isPassed
-            if(!receipt.isPassed){
-                console.log(receipt.message);
-                
-            }
+    
 
-        }
-        if(e.target.name==="password"){
-            receipt.message=this.checkPassword(text).message
-             receipt.isPassed=this.checkPassword(text).isPassed
-            if(!receipt.isPassed){
-                console.log(receipt.message);
-                
-            }
-        }
+    handleChange = (e) => {
+        const targetName = e.target.name
+        const targetValue = e.target.value
 
         this.setState({
-            [e.target.name]:{
-                message:this.receipt.message,
-                isPassed:this.receipt.isPassed
+            [targetName]: {
+                ...this.state[targetName],
+                value: targetValue
             }
-            })
-        
+        })
     }
-    checkEmail = (email) => {
-        let emailReceipt = {
-            isPassed: false,
-            message: ''
-        }
-        if (email) {
-            if (email.length < 25 && email.length > 5) {
-                if (email.indexOf('@') !== -1&&email.indexOf('.com')!==-1) {
-                    emailReceipt.isPassed = true
-                    emailReceipt.message = 'passed'
-                    return emailReceipt
-                }
-                emailReceipt.message = "not valid email format"
-                return emailReceipt
-            }
-            emailReceipt.message = "Longer than 5"
-            return emailReceipt
-        }
-        emailReceipt.message = 'Required'
-        return emailReceipt
 
-    }
-    checkName=(name)=>{
-        let receipt = {
-            isPassed: false,
-            message: ''
+    validate = (targetName, targetValue) => {
+        let isValid = false
+        let errorMessage = ''
+
+
+        switch (targetName) {
+            case 'email':
+                isValid = targetValue.match(/[\w-]+@([\w-]+\.)+[\w-]+/i)
+                isValid = isValid ? true : false
+                errorMessage = isValid ? '' : 'invalid email'
+                break;
+
+            case 'password':
+                isValid = targetValue.match(/(?=.*[a-z])(?=.*[A-Z])(?=.{6,15})/g)
+                isValid = isValid ? true : false
+                errorMessage = isValid ? '' : 'Longer than 6 '
+                
+                // errorMessage = isValid ? '' : 'password has to be 6-15 letter or number with At least one upper case character and At least one lower case character '
         }
-        if (name) {
-            receipt.isPassed=true 
-            receipt.message='passed'
-            return receipt
+
+        if (!targetValue) {
+            errorMessage = "Required"
         }
-        receipt.message = 'Required'
-        return receipt
-    }
-    checkPassword=(password)=>{
-        let receipt = {
-            isPassed: false,
-            message: ''
-        }
-        if (password) {
-            if (password.length < 15 && password.length > 6) {
-                if (password.match("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#%&])(?=.{8,})")) {
-                    receipt.isPassed = true
-                    receipt.message = 'passed'
-                    return receipt
-                }
-                receipt.message = `not valid password format \n 
-                password have to include at least one lowercase, one uppercase letter,one special letter and one number \n
-                good luck! `
-                return receipt
+        this.setState({
+            [targetName]: {
+                ...this.state[targetName],
+                isValid: isValid,
+                errorMessage: errorMessage
             }
-            receipt.message = "Longer than 6"
-            return receipt
-        }
-        receipt.message = 'Required'
-        return receipt
+        })
     }
+
     
+
+    handleBlur = (e) => {
+        const name = e.target.name
+        const value = e.target.value
+        this.validate(name, value)
+    }
+
+   
+
+
     render() {
         console.log(this.state);
-        
         return (
-            <div>
+            <div className="login">
+
+                <img  src="/background.jpg" alt=""/>
+
                 <div className="out-box">
-                    <div className="card">
+                
 
-                        <form onSubmit={this.handleSubmit}>
-                            <input onBlur={this.handleBlur} type="text" name="email" placeholder={"email"} />
-                            <input onBlur={this.handleBlur} type="text" name="password" placeholder="password" />
-                            <input onBlur={this.handleBlur} type="text" name="name" placeholder="name" />
-                            <input type="button" value="button" />
-                        </form>
-                    </div>
+                    <div id="form-title">
+                        BIGFISH
+                        </div>
 
+                    <form onSubmit={this.handleSubmit}>
+                        <Form name="email" message={this.state.email.errorMessage} 
+                        handleChange={(e)=>this.handleChange(e)} handleBlur={(e)=>this.handleBlur(e)} value={this.state.email.value}/>
+                        <Form name="password" message={this.state.password.errorMessage}
+                        handleChange={(e)=>this.handleChange(e)} handleBlur={(e)=>this.handleBlur(e)} value={this.state.password.value}/>
+                        <Form name="name" message={this.state.name.errorMessage}
+                        handleChange={(e)=>this.handleChange(e)} handleBlur={(e)=>this.handleBlur(e)} value={this.state.name.value}/>
+
+                        
+
+                        <button id="form-button" type="submit" >
+                            button
+                            </button>
+                    </form>
                 </div>
+
 
             </div>
         )
