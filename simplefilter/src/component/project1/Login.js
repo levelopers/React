@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import Form from './Form'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import SignUp from './SignUp';
+import './SignUp.css'
+import { Link } from 'react-router-dom'
+
+
 
 
 export default class Login extends Component {
@@ -78,7 +80,7 @@ export default class Login extends Component {
 
 
     render() {
-        console.log(this.state);
+        // console.log(this.state);
         return (
     
     <div className="login" style={{"background-image": "url('/background.jpg')"}}>
@@ -106,10 +108,7 @@ export default class Login extends Component {
                     <div className="footer">
                        <span >
                       Don't have an account?
-                      {/* <Router>
-                       <Link to="/SignUp">SignUp</Link>
-        <Route path="/Signup" component={this.SignUp} />
-                       </Router> */}
+                      <Link to="/signup">SignUp</Link>
                        </span>
                     </div>
                 </div>
