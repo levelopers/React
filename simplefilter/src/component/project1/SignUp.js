@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './SignUp.css'
 import Form from './Form'
+import { Link } from 'react-router-dom'
+
 
 export default class SignUp extends Component {
     constructor(props) {
@@ -112,7 +114,9 @@ export default class SignUp extends Component {
                     </form>
                     <div className="footer">
                        <span >
-                       Already have an account? <a href="#">Login</a>
+                       Already have an account?
+                      <Link to="/login">Login</Link>
+
                        </span>
                     </div>
                 </div>
