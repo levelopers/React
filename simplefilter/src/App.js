@@ -43,6 +43,15 @@ class App extends Component {
   //   )
   // }
 
+  //password validate seperate
+  //error message (white background color)
+  //router --> component dupalicate
+  //          route component variable
+  //new repo, project structure 
+  
+
+
+
   Home = () => {
     return (
       <div>
@@ -60,13 +69,22 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <Switch>
-        <Route exact path="/" component={Login} />
-          <Route  path="/login" component={Login} />
-          <Route path="/signup" component={SignUp} />
-        </Switch>
-      </Router>
+      // <div>
+      //   asdadas
+
+      //   asda
+      //   da
+      //   sda
+
+        <Router>
+          <Switch>
+            <Route path="/login" component={Login} />
+            {/* <Route path="/login" component={Login} /> */}
+            {/* <Route path="/signup" component={SignUp} /> */}
+          </Switch>
+        </Router>
+      // </div>
+
     )
   }
 }
