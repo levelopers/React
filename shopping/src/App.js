@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Header from './partials/header/header'
-import Navbar from './partials/navbar/navbar';
+import Header from './component/partials/header/header'
+import Navbar from './component/partials/navbar/navbar';
 
 
 const products = require('./products.json');//simulate fetch api
