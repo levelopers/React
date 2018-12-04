@@ -1,0 +1,8 @@
+font-family: Roboto-Medium;
+font-size: 25px;
+color: #424C50;
+text-align: left;
+font-family: Roboto-Regular;
+font-size: 25px;
+color: #424C50;
+text-align: justify;
